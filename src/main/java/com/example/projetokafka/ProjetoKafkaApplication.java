@@ -13,6 +13,8 @@ public class ProjetoKafkaApplication {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
         //SpringApplication.run(ProjetoKafkaApplication.class, args);
+
+        // Gera um pedido aleatorizado de exemplo, para fins de demonstração do Kafka
         NewOrderMain newOrderMain = new NewOrderMain();
         var amount = new BigDecimal(Math.random() * 1000 + 1).setScale(2, BigDecimal.ROUND_HALF_UP);
         newOrderMain.newOrder(

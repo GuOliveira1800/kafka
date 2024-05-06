@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 
 public class NewOrderMain {
 
+    // Definição dos tópicos
     public static String ECOMMERCE_NEW_ORDER = "ECOMMERCE_NEW_ORDER";
     public static String ECOMMERCE_SEND_EMAIL = "ECOMMERCE_SEND_EMAIL";
 
@@ -14,6 +15,7 @@ public class NewOrderMain {
         var OrderDispatcher = new KafkaDispatcher<NewOrder>();
         var EmailDispatcher = new KafkaDispatcher<Email>();
 
+        // Despacha para os respectivos tópicos
         OrderDispatcher.send(ECOMMERCE_NEW_ORDER,UUID.randomUUID().toString(),newOrder);
         EmailDispatcher.send(ECOMMERCE_SEND_EMAIL,UUID.randomUUID().toString(),email);
     }
